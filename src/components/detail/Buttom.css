@@ -1,0 +1,66 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .developer-button {
+    background: none; /* No background */
+    color: #00ffff; /* Neon cyan */
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.2em;
+    border: none; /* No border */
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+.connect-message {
+    font-size: 0.9em; /* Smaller font size */
+    color: #00ffff; /* Neon cyan color */
+    text-align: center;
+    margin: 0; /* Remove default margin */
+    font-family: "Orbitron", sans-serif;
+  }
+  .username {
+    font-weight: bold; /* Make username bold for emphasis */
+    text-decoration: underline; /* Underline the username for visual cue */
+    color: #ff1493; /* Hot pink color for the username */
+  }
+  
+  .developer-button:hover {
+    color: #008b8b; /* Darker cyan on hover */
+    transform: scale(1.05); /* Slight scale effect */
+  }
+  
+  .copyright {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #aaa; /* Light gray for copyright text */
+    text-align: center;
+    font-family: "Orbitron", sans-serif;
+  }
+  
+  /* Logo styles */
+  .logo {
+    width: 100px; /* Adjust width as needed */
+    height: auto;
+    margin-top: 10px;
+    opacity: 0; /* Start invisible */
+    animation: popup 0.5s forwards; /* Popup animation */
+    animation-delay: 1s; /* Delay to allow copyright to show first */
+  }
+  
+  /* Keyframe animation for the popup effect */
+  @keyframes popup {
+    0% {
+      transform: translateY(20px); /* Start from below */
+      opacity: 0; /* Invisible */
+    }
+    100% {
+      transform: translateY(0); /* Move to original position */
+      opacity: 1; /* Fully visible */
+    }
+  }
+  

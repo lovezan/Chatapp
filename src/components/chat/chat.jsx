@@ -53,9 +53,6 @@ const Chat = () => {
     };
   }, [chatId]);
 
-
-  
-
   const handleEmoji = (e) => {
     setText((prev) => prev + e.emoji);
     setOpen(false);
@@ -181,29 +178,28 @@ const Chat = () => {
   };
 
   const renderMessageText = (text) => {
-  // Regular expression to detect URLs
-  const urlPattern = /(https?:\/\/[^\s]+)/g;
+    // Regular expression to detect URLs
+    const urlPattern = /(https?:\/\/[^\s]+)/g;
 
-  // If the text contains URLs, replace them with clickable links
-  const formattedText = text.split(" ").map((part, index) =>
-    urlPattern.test(part) ? (
-      <a
-        key={index}
-        href={part}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="message-link" // Add a class for styling
-      >
-        {part}
-      </a>
-    ) : (
-      <span key={index}>{part} </span>
-    )
-  );
+    // If the text contains URLs, replace them with clickable links
+    const formattedText = text.split(" ").map((part, index) =>
+      urlPattern.test(part) ? (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="message-link" // Add a class for styling
+        >
+          {part}
+        </a>
+      ) : (
+        <span key={index}>{part} </span>
+      )
+    );
 
-  return formattedText;
-};
-
+    return formattedText;
+  };
 
   return (
     <div className="chat">
@@ -212,7 +208,7 @@ const Chat = () => {
           <img src={user?.avatar || "./avatar.png"} alt="" />
           <div className="texts">
             <span>{user?.username || "User"}</span>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Let's Build Big Network Togeather</p>
           </div>
         </div>
         <div className="icons">
@@ -223,7 +219,6 @@ const Chat = () => {
       </div>
       <div className="center">
         {chat?.messages?.map((message) => (
-        
           <div
             className={`message ${
               message.senderId === currentUser.id ? "own" : ""
@@ -265,7 +260,11 @@ const Chat = () => {
                 </a>
               )}
               {message.text && <p>{renderMessageText(message.text)}</p>}
-  {message.mediaDescription && <p><i>{message.mediaDescription}</i></p>}
+              {message.mediaDescription && (
+                <p>
+                  <i>{message.mediaDescription}</i>
+                </p>
+              )}
             </div>
           </div>
         ))}
@@ -324,7 +323,7 @@ const Chat = () => {
             style={{ display: "none" }}
             onChange={handleMedia}
           />
-        
+
           <div className="emoji">
             <img
               src="./emoji.png"
@@ -346,15 +345,15 @@ const Chat = () => {
           onKeyDown={handleKeyDown}
           ref={textInputRef}
         />
-  
+
         <button
           onClick={handleSend}
           disabled={isSending || isCurrentUserBlocked || isReciverBlocked}
         >
           <FiSend /> {/* Reply icon */}
         </button>
-          <img src="./mic.png" alt="" />
-          <img src="./camera.png" alt="" />
+        <img src="./mic.png" alt="" />
+        <img src="./camera.png" alt="" />
       </div>
     </div>
   );

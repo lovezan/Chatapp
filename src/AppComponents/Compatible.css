@@ -1,0 +1,90 @@
+/* Add a keyframe animation for a fluctuating glow effect */
+@keyframes neon-glow {
+    0% {
+      filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.7))
+        drop-shadow(0 0 30px rgba(0, 255, 255, 1));
+    }
+    50% {
+      filter: drop-shadow(0 0 30px rgba(0, 255, 255, 1))
+        drop-shadow(0 0 60px rgba(0, 255, 255, 0.8));
+    }
+    100% {
+      filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.7))
+        drop-shadow(0 0 30px rgba(0, 255, 255, 1));
+    }
+  }
+  
+  /* Container for the message and logo */
+  .compatibility-message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 12px;
+    z-index: 1000;
+    width: 400px;
+    text-align: center;
+  }
+  
+  /* Neon-glowing and fluctuating logo image */
+  .compatibility-message-container img {
+    width: 120px;
+    animation: neon-glow 3s ease-in-out infinite;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+  }
+  
+  .compatibility-message-container img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Neon text with glow - Changed color to red */
+  .compatibility-message {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.8em;
+    color: red; /* Updated to red */
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.6),
+      0 0 15px rgba(255, 0, 0, 0.9), 0 0 25px rgba(255, 0, 0, 1);
+    opacity: 0.9;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Use PC message with blur effect */
+  .use-pc-message {
+    font-size: 1.5em;
+    color: #00ffcc; /* Light blue color */
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+    filter: blur(1px); /* Added blur effect */
+    animation: pulsePCMessage 1.5s infinite;
+  }
+  
+  /* Fade-in animation for message */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Glow effect for the "Use PC" message */
+  @keyframes pulsePCMessage {
+    0% {
+      text-shadow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.4);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(0, 255, 204, 1), 0 0 30px rgba(0, 255, 204, 0.7);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.4);
+    }
+  }
+  
