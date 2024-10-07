@@ -1,7 +1,13 @@
 import "./chat.css";
 import { useEffect, useState, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
-import { arrayUnion, doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
+import {
+  arrayUnion,
+  doc,
+  getDoc,
+  onSnapshot,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../../lib/firebase";
 import { useChatStore } from "../../lib/chatStore";
 import { useUserStore } from "../../lib/userStore";
@@ -22,7 +28,8 @@ const Chat = () => {
   const [isSending, setIsSending] = useState(false);
 
   const { currentUser } = useUserStore();
-  const { chatId, user, isCurrentUserBlocked, isReciverBlocked } = useChatStore();
+  const { chatId, user, isCurrentUserBlocked, isReciverBlocked } =
+    useChatStore();
 
   const endref = useRef(null);
   const textInputRef = useRef(null);
@@ -57,11 +64,17 @@ const Chat = () => {
         ? "image"
         : file.type.startsWith("video/")
         ? "video"
+        : file.type.startsWith("audio/") // Added for audio files
+        ? "audio"
         : file.type.startsWith("application/pdf")
         ? "pdf"
-        : file.type.startsWith("application/vnd.openxmlformats-officedocument.presentationml.presentation") // PowerPoint
+        : file.type.startsWith(
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+          ) // PowerPoint
         ? "ppt"
-        : file.type.startsWith("application/vnd.openxmlformats-officedocument.wordprocessingml.document") // Word
+        : file.type.startsWith(
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          ) // Word
         ? "doc"
         : file.type.startsWith("application/zip") // ZIP
         ? "zip"
@@ -74,7 +87,9 @@ const Chat = () => {
           type: fileType,
         });
       } else {
-        toast.error("Unsupported file type. Please upload an image, video, PDF, PPT, DOC, or ZIP file.");
+        toast.error(
+          "Unsupported file type. Please upload an image, video, audio, PDF, PPT, DOC, or ZIP file."
+        );
       }
     }
   };
@@ -91,12 +106,22 @@ const Chat = () => {
 
       if (media.file) {
         mediaUrl = await upload(media.file);
-        lastMessageText = media.type === "image" ? `📷 Image Sent`
-          : media.type === "video" ? `🎥 Video Sent`
-          : media.type === "pdf" ? `📄 PDF Sent`
-          : media.type === "ppt" ? `📊 PowerPoint Sent`
-          : media.type === "doc" ? `📝 Word Document Sent`
-          : media.type === "zip" ? `📦 ZIP File Sent` : "";
+        lastMessageText =
+          media.type === "image"
+            ? `📷 Image Sent`
+            : media.type === "video"
+            ? `🎥 Video Sent`
+            : media.type === "audio"
+            ? `🎵 Audio Sent` // Added for audio files
+            : media.type === "pdf"
+            ? `📄 PDF Sent`
+            : media.type === "ppt"
+            ? `📊 PowerPoint Sent`
+            : media.type === "doc"
+            ? `📝 Word Document Sent`
+            : media.type === "zip"
+            ? `📦 ZIP File Sent`
+            : "";
       }
 
       const messageData = {
@@ -118,7 +143,9 @@ const Chat = () => {
 
         if (userChatsSnapShot.exists()) {
           const userChatsData = userChatsSnapShot.data();
-          const chatIndex = userChatsData.chats.findIndex((c) => c.chatId === chatId);
+          const chatIndex = userChatsData.chats.findIndex(
+            (c) => c.chatId === chatId
+          );
 
           userChatsData.chats[chatIndex].lastMessage = lastMessageText;
           userChatsData.chats[chatIndex].isSeen = id === currentUser.id;
@@ -167,7 +194,12 @@ const Chat = () => {
       </div>
       <div className="center">
         {chat?.messages?.map((message) => (
-          <div className={`message ${message.senderId === currentUser.id ? "own" : ""}`} key={message?.createdAt}>
+          <div
+            className={`message ${
+              message.senderId === currentUser.id ? "own" : ""
+            }`}
+            key={message?.createdAt}
+          >
             <div className="texts">
               {message.image && <img src={message.image} alt="" />}
               {message.video && (
@@ -176,12 +208,38 @@ const Chat = () => {
                   Your browser does not support the video tag.
                 </video>
               )}
-              {message.pdf && <a href={message.pdf} target="_blank" rel="noopener noreferrer">📄 PDF File</a>}
-              {message.ppt && <a href={message.ppt} target="_blank" rel="noopener noreferrer">📊 PowerPoint File</a>}
-              {message.doc && <a href={message.doc} target="_blank" rel="noopener noreferrer">📝 Word Document</a>}
-              {message.zip && <a href={message.zip} target="_blank" rel="noopener noreferrer">📦 ZIP File</a>}
+              {message.audio && ( // Added for audio files
+                <audio controls>
+                  <source src={message.audio} type="audio/mpeg" />
+                  Your browser does not support the audio tag.
+                </audio>
+              )}
+              {message.pdf && (
+                <a href={message.pdf} target="_blank" rel="noopener noreferrer">
+                  📄 PDF File
+                </a>
+              )}
+              {message.ppt && (
+                <a href={message.ppt} target="_blank" rel="noopener noreferrer">
+                  📊 PowerPoint File
+                </a>
+              )}
+              {message.doc && (
+                <a href={message.doc} target="_blank" rel="noopener noreferrer">
+                  📝 Word Document
+                </a>
+              )}
+              {message.zip && (
+                <a href={message.zip} target="_blank" rel="noopener noreferrer">
+                  📦 ZIP File
+                </a>
+              )}
               {message.text && <p>{message.text}</p>}
-              {message.mediaDescription && <p><i>{message.mediaDescription}</i></p>}
+              {message.mediaDescription && (
+                <p>
+                  <i>{message.mediaDescription}</i>
+                </p>
+              )}
             </div>
           </div>
         ))}
@@ -196,16 +254,31 @@ const Chat = () => {
                   <source src={media.url} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+              ) : media.type === "audio" ? ( // Added for audio files
+                <audio controls>
+                  <source src={media.url} type="audio/mpeg" />
+                  Your browser does not support the audio tag.
+                </audio>
               ) : media.type === "pdf" ? (
-                <a href={media.url} target="_blank" rel="noopener noreferrer">📄 PDF File</a>
+                <a href={media.url} target="_blank" rel="noopener noreferrer">
+                  📄 PDF File
+                </a>
               ) : media.type === "ppt" ? (
-                <a href={media.url} target="_blank" rel="noopener noreferrer">📊 PowerPoint File</a>
+                <a href={media.url} target="_blank" rel="noopener noreferrer">
+                  📊 PowerPoint File
+                </a>
               ) : media.type === "doc" ? (
-                <a href={media.url} target="_blank" rel="noopener noreferrer">📝 Word Document</a>
+                <a href={media.url} target="_blank" rel="noopener noreferrer">
+                  📝 Word Document
+                </a>
               ) : media.type === "zip" ? (
-                <a href={media.url} target="_blank" rel="noopener noreferrer">📦 ZIP File</a>
+                <a href={media.url} target="_blank" rel="noopener noreferrer">
+                  📦 ZIP File
+                </a>
               ) : null}
-              <p><i>Waiting for description...</i></p>
+              <p>
+                <i>Waiting for description...</i>
+              </p>
             </div>
           </div>
         )}
@@ -219,7 +292,12 @@ const Chat = () => {
           <label htmlFor="file">
             <img src="./img.png" alt="" />
           </label>
-          <input type="file" id="file" style={{ display: "none" }} onChange={handleMedia} />
+          <input
+            type="file"
+            id="file"
+            style={{ display: "none" }}
+            onChange={handleMedia}
+          />
           <img src="./camera.png" alt="" />
           <img src="./mic.png" alt="" />
           <div className="emoji">
@@ -243,7 +321,10 @@ const Chat = () => {
           onKeyDown={handleKeyDown}
           ref={textInputRef}
         />
-        <button onClick={handleSend} disabled={isSending || (isCurrentUserBlocked || isReciverBlocked)}>
+        <button
+          onClick={handleSend}
+          disabled={isSending || isCurrentUserBlocked || isReciverBlocked}
+        >
           Send
         </button>
       </div>
