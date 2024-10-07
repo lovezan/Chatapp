@@ -1,0 +1,222 @@
+.detail {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05); /* Transparent background */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  overflow: auto;
+
+
+  /* Common button styling for both Block User and Logout */
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: red; /* Default color for Block User */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition effect */
+  }
+
+  /* Block User button hover effect */
+  button:hover {
+    background-color: darkred;
+    color: white;
+  }
+
+  /* Logout button specific styling */
+  .logout {
+    background-color: skyblue;
+    margin-top: 20px;
+  }
+
+  /* Logout button hover effect */
+  .logout:hover {
+    background-color: deepskyblue;
+    color: white;
+  }
+
+  .user {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.1); /* Enlarge the avatar slightly on hover */
+    }
+
+    h2 {
+      font-size: 22px;
+      color: rgba(255, 255, 255, 0.9); /* Light text for username */
+    }
+
+    p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6); /* Subtle text for description */
+    }
+  }
+
+  .info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+   
+
+    .option {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+
+        span {
+          color: rgba(255, 255, 255, 0.85); /* Light text color */
+          font-size: 16px;
+        }
+
+        img {
+          width: 25px;
+          height: 25px;
+          background-color: rgba(
+            255,
+            255,
+            255,
+            0.2
+          ); /* Light transparent circle */
+          padding: 6px;
+          border-radius: 50%;
+          transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.15);
+          transform: scale(1.02); /* Slight zoom effect */
+        }
+
+        &:hover img {
+          transform: rotate(180deg); /* Rotate the arrow on hover */
+        }
+      }
+
+      .photos {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .photoItem {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px;
+          background-color: rgba(
+            255,
+            255,
+            255,
+            0.1
+          ); /* Transparent photo item */
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          transition: background 0.3s ease, transform 0.3s ease;
+
+          .photsDetail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 10px;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+            }
+
+            span {
+              font-size: 14px;
+              color: rgba(255, 255, 255, 0.85); /* Light text for photo names */
+            }
+          }
+
+          img:hover {
+            transform: scale(1.05); /* Slight zoom on photo hover */
+          }
+
+          img {
+            width: 25px;
+            height: 25px;
+            background-color: rgba(
+              255,
+              255,
+              255,
+              0.1
+            ); /* Light transparent circle */
+            padding: 6px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+          }
+
+          &:hover img {
+            background-color: rgba(255, 255, 255, 0.2);
+          }
+
+          &:hover {
+            transform: translateY(-3px); /* Lift up the photo item on hover */
+          }
+        }
+      }
+
+      button {
+        padding: 12px;
+        background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+        color: rgba(255, 255, 255, 0.85); /* Light text color */
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        transition: background 0.4s ease, color 0.4s ease, transform 0.4s ease;
+
+        &:hover {
+          background: linear-gradient(
+            45deg,
+            rgba(255, 0, 0, 0.2),
+            rgba(255, 69, 0, 0.2)
+          ); /* Soft gradient on hover */
+          color: rgba(255, 0, 0, 0.85); /* Text turns red on hover */
+          transform: scale(1.05); /* Slightly enlarge on hover */
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+        }
+      }
+    }
+  }
+}

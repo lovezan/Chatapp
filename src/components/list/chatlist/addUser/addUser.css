@@ -1,0 +1,92 @@
+.addUser {
+    width: 420px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white */
+    border-radius: 15px;
+    backdrop-filter: blur(20px); /* Blur effect for a modern, frosted glass look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Soft shadow for a premium effect */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    z-index:10;
+
+
+  form {
+     display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+
+    input {
+      padding: 15px;
+      border-radius: 3px;
+      border: none;
+      outline: none;
+      flex-grow: 1; /* Allows input to grow and take up more space */
+      background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent input */
+      color: white;
+    }
+    input::placeholder {
+      color: rgba(
+        255,
+        255,
+        255,
+        0.6
+      ); /* Make placeholder text slightly visible */
+    }
+
+    button {
+      padding: 15px;
+      border-radius: 5px;
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease; /* Smooth button effect */
+    }
+    button:hover {
+      background-color: darkblue; /* Button color change on hover */
+    }
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .detail {
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
+
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; /* Make avatar circular */
+      }
+
+      h2 {
+        color: white;
+        font-size: 18px;
+        margin: 0;
+    }
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: green;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: darkgreen; /* Button hover effect */
+    }
+  }
+}

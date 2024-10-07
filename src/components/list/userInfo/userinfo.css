@@ -1,0 +1,102 @@
+/* Apply styles for the overall user info container */
+.userinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px; /* Slightly reduced border radius */
+    padding: 5px; /* Further reduced padding */
+    margin: 15px auto; /* Reduced margin */
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 255, 0.2), 0 3px 10px rgba(0, 0, 0, 0.1); /* Adjusted shadow for compactness */
+    transition: all 0.3s ease-in-out;
+    width: 90%;
+    max-width: 600px; /* Further reduced max-width for compactness */
+}
+
+/* Styling the user details */
+.user {
+    display: flex;
+    align-items: center;
+}
+
+/* Avatar styling with a round shape */
+.avatar {
+    width: 40px; /* Further reduced size */
+    height: 40px; /* Further reduced size */
+    border-radius: 50%;
+    margin-right: 5px; /* Further reduced margin */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Soft white border */
+    transition: transform 0.3s ease;
+}
+
+/* Adding hover effect for futuristic look */
+.avatar:hover {
+    transform: scale(1.1); /* Slight zoom-in on hover */
+}
+
+/* Styling the user name */
+.user h2 {
+    font-size: 1.2rem; /* Further reduced font size */
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 5px rgba(0, 0, 128, 0.3); /* Adjusted text shadow for depth */
+    margin: 0; /* Remove margin for compactness */
+}
+
+/* Icons styling for futuristic design */
+.icons {
+    display: flex;
+    gap: 5px; /* Further reduced gap between icons */
+}
+
+/* Each icon's general style */
+.icon {
+    width: 20px; /* Further reduced size */
+    height: 20px; /* Further reduced size */
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 255, 0.3)); /* Glow effect for icons */
+}
+
+/* Icon hover effect */
+.icon:hover {
+    transform: scale(1.1); /* Slight zoom-in on hover */
+    filter: drop-shadow(0 0 15px rgba(0, 0, 255, 0.6)); /* Stronger glow on hover */
+}
+
+/* Responsive design: stack elements on smaller screens */
+@media (max-width: 768px) {
+    .userinfo {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5px; /* Further reduced padding for smaller screens */
+    }
+
+    .user {
+        margin-bottom: 5px; /* Further reduced margin */
+    }
+
+    .icons {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .userinfo {
+        padding: 3px; /* Further reduced padding */
+    }
+
+    .avatar {
+        width: 30px; /* Further reduced size */
+        height: 30px; /* Further reduced size */
+    }
+
+    .user h2 {
+        font-size: 1rem; /* Further reduced font size */
+    }
+
+    .icon {
+        width: 15px; /* Further reduced size */
+        height: 15px; /* Further reduced size */
+    }
+}

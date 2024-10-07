@@ -1,7 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url("/bg.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  height: 90vh;
+  width: 90vw;
+  display: flex; /*
+  height: 90vh;
+  background-color: rgba(29, 29, 82, 0.4); /* Fallback transparent color */
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(20, 20, 20,.75);
+  border: 1px solid rgba(255, 255, 255,.125);
+  
+}
+
+
+.loading{
+  padding: 50px;
+  font-size: 36px;
+  border-radius: 10px ;
+  background-color: rgb(38, 32, 32);
 }

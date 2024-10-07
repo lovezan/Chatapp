@@ -1,0 +1,152 @@
+/* Overall chat list container */
+.chatList {
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 400px; /* Set max width for chat list */
+  margin: 20px auto; /* Center align */
+}
+
+/* Search container */
+.search {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1); /* Light translucent background */
+  border-radius: 8px; /* Slightly reduced border radius */
+  padding: 8px; /* Reduced padding */
+  box-shadow: 0 8px 32px rgba(0, 0, 255, 0.3); /* Soft blue glow */
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+/* Search bar styling */
+.searchBar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* Search icon styling */
+.searchIcon {
+  width: 18px; /* Reduced size */
+  height: 18px; /* Reduced size */
+  margin-right: 8px; /* Reduced margin */
+  filter: drop-shadow(0 0 10px rgba(0, 0, 255, 0.5)); /* Glow effect */
+}
+
+/* Search input styling */
+.searchInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 0.9rem; /* Slightly smaller font size */
+  padding: 4px; /* Reduced padding */
+  width: 100%;
+  border-radius: 4px; /* Reduced border radius */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Change input background on focus */
+.searchInput:focus {
+  background: rgba(255, 255, 255, 0.2); /* Lighten on focus */
+}
+
+/* Add icon styles with animation */
+.addIcon {
+  width: 28px;
+  height: 28px;
+  margin-left: 8px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 255, 0.5));
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Animation for transform */
+}
+
+/* Hover effect */
+.addIcon:hover {
+  transform: scale(1.1); /* Slight zoom-in on hover */
+}
+
+/* Animation when the icon is in add mode */
+.addIcon.rotate {
+  transform: scale(1.2) rotate(45deg); /* Slight zoom-in and rotate */
+}
+/* Item container styling */
+.itemContainer {
+  max-height: 65vh; /* Set a maximum height for the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Padding around the items */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  position: relative; /* Position relative for internal positioning */
+
+  /* Avatar styling */
+  .avatar {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    border-radius: 50%; /* Circular avatar */
+    margin-right: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Soft white border */
+    transition: transform 0.3s ease; /* Avatar hover effect */
+  }
+
+  /* Avatar hover effect */
+  .avatar:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+}
+
+/* Hide scrollbar for webkit browsers */
+.itemContainer::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.itemContainer {
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+/* Item styling */
+.item {
+  display: flex;
+  align-items: center;
+  background: transparent; /* Remove background color */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4); /* White border at the bottom */
+  padding: 10px;
+  margin: 10px 0; /* Margin between items */
+  transition: transform 0.2s ease; /* Smooth transition */
+}
+
+/* Ensure the last item doesn't have a bottom border */
+.item:last-child {
+  border-bottom: none; /* Remove bottom border for the last item */
+}
+
+/* Text container styling */
+.texts {
+  color: white; /* White text color */
+  flex: 1; /* Allow text container to take available space */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* User name styling */
+.userName {
+  font-size: 1.2rem; /* Adjust font size */
+  font-weight: 600; /* Bold font */
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflowing text */
+}
+
+/* User message styling */
+.userMessage {
+  font-size: 0.9rem; /* Adjust font size */
+  color: rgba(255, 255, 255, 0.8); /* Slightly transparent for message */
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflowing text */
+}
+
+/* Item hover effect */
+.item:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
