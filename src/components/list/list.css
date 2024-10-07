@@ -1,3 +1,21 @@
 .list{
     flex:1;
 }
+
+/* Hide list on small screens */
+@media (max-width: 1024px) {
+    .list {
+      display: none; /* Hide the list on smaller screens */
+    }
+  
+    .chat-item {
+      cursor: none;
+    }
+  
+    /* Show chat only */
+    .container {
+      flex-direction: column; /* Stack elements vertically */
+      width: 100%; /* Full width */
+    }
+  }
+  

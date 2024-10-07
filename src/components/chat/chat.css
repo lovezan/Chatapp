@@ -1,372 +1,342 @@
 .chat {
-    flex: 2;
-    border-left: 1px solid rgb(137, 134, 134);
-    border-right: 1px solid rgb(137, 134, 134);
-    height: 100%;
+  flex: 2;
+  border-left: 1px solid rgb(137, 134, 134);
+  border-right: 1px solid rgb(137, 134, 134);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .top {
+    padding: 20px;
     display: flex;
-    flex-direction: column;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space between user info and icons */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Optional: Add a bottom border */
 
-    .top {
-        padding: 20px;
-        display: flex;
-        align-items: center; /* Align items vertically */
-        justify-content: space-between; /* Space between user info and icons */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Optional: Add a bottom border */
-
-
-        
     .user {
-        display: flex;
-        align-items: center; /* Align items vertically */
+      display: flex;
+      align-items: center; /* Align items vertically */
 
-        
-    img {
+      img {
         width: 50px; /* Avatar size */
         height: 50px;
         border-radius: 50%; /* Circular avatar */
         margin-right: 10px; /* Space between avatar and text */
+      }
+
+      .texts {
+        color: white; /* Text color */
+      }
+
+      .texts span {
+        font-size: 1.2rem; /* User name size */
+        font-weight: bold; /* Bold user name */
+      }
+
+      .texts p {
+        font-size: 0.9rem; /* Message size */
+        color: rgba(255, 255, 255, 0.8); /* Slightly transparent for message */
+      }
+    }
+
+    .icons {
+      display: flex;
+      align-items: center; /* Center the icons vertically */
+
+      img {
+        width: 24px; /* Icon size */
+        height: 24px;
+        margin-left: 15px; /* Space between icons */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: transform 0.3s; /* Add transition for hover effect */
+      }
+
+      .icons img:hover {
+        transform: scale(1.1); /* Scale effect on hover */
+      }
+    }
+  }
+
+  /* Cenert css */
+
+  .center {
+    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    border-radius: 15px;
+    scrollbar-width: none;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+
+    .message {
+      max-width: 65%;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      position: relative;
+      padding: 15px 20px;
+      border-radius: 18px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+      animation: popIn 0.4s ease;
+      background: #0c4d6b;
+      color: #333;
+      transition: all 0.3s ease-in-out;
+
+      &.own {
+        align-self: flex-end;
+        background: #3498db;
+        color: #fff;
+        box-shadow: 0px 5px 15px rgba(52, 152, 219, 0.2);
+
+        .texts span {
+          color: rgba(255, 255, 255, 0.6);
+        }
+       
+      }
+      .texts p {
+        .message-link {
+            color: blue; /* Set link color */
+            text-decoration: underline; /* Optional, but common for links */
+            cursor: pointer;
+          }
+     
+    }
+      .own:hover {
+        background: #2980b9;
+      }
+
+      img {
+        width: 100%;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+    }
+    .message:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .texts {
-        color: white; /* Text color */
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        font-size: 15px;
+        line-height: 1.6;
+        font-weight: 500;
+        margin: 0;
+        /* color: inherit; */
+      }
+
+      span {
+        font-size: 12px;
+        color: rgba(191, 244, 0, 0.4);
+        text-align: right;
+      }
+      img {
+        width: 100%;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+      }
     }
 
-    .texts span {
-        font-size: 1.2rem; /* User name size */
-        font-weight: bold; /* Bold user name */
-    }
-
-    .texts p {
-        font-size: 0.9rem; /* Message size */
-        color: rgba(255, 255, 255, 0.8); /* Slightly transparent for message */
-    }
-
-    }
-
-
-    .icons {
-        display: flex;
-        align-items: center; /* Center the icons vertically */
-
-
-
-        img {
-            width: 24px; /* Icon size */
-            height: 24px;
-            margin-left: 15px; /* Space between icons */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: transform 0.3s; /* Add transition for hover effect */
-        }
-    
-        .icons img:hover {
-            transform: scale(1.1); /* Scale effect on hover */
-        }
-    }
-    }
-
-    /* Cenert css */
-
-    .center {
-        padding: 30px;
-        flex: 1;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        background: linear-gradient(45deg, #2c3e50, #3498db);
-        border-radius: 15px;
-        scrollbar-width: none; 
-        position: relative;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        max-height: 80vh;
-
-
-        .message {
-            max-width: 65%;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            position: relative;
-            padding: 15px 20px;
-            border-radius: 18px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            animation: popIn 0.4s ease;
-            background: #0c4d6b;
-            color: #333;
-            transition: all 0.3s ease-in-out;
-
-            
-            &.own {
-                align-self: flex-end;
-                background: #3498db;
-                color: #fff;
-                box-shadow: 0px 5px 15px rgba(52, 152, 219, 0.2);
-
-
-
-                .texts span {
-                    color: rgba(255, 255, 255, 0.6);
-                }
-                .texts p {
-                    color: #fff;
-                }
-            }
-            .own:hover {
-                background: #2980b9;
-            }
-
-            img{
-                width: 100%;
-                height: 300px;
-                border-radius: 20px;
-                object-fit: cover;
-            }
-
-
-        }
-        .message:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .texts {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            p {
-                font-size: 15px;
-                line-height: 1.6;
-                font-weight: 500;
-                margin: 0;
-                color: inherit;
-            }
-            
-                span {
-                font-size: 12px;
-                color: rgba(191, 244, 0, 0.4);
-                text-align: right;
-            }
-            img{
-                width: 100%;
-                height: 300px;
-                border-radius: 20px;
-                object-fit: cover;
-            }
-
-        }
-        
-        
     @keyframes popIn {
-        from {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
-    
+
     @media (max-width: 768px) {
-        .message {
-            max-width: 85%;
-            padding: 10px 15px;
-        }
-        .message img {
-            width: 35px;
-            height: 35px;
-        }
+      .message {
+        max-width: 85%;
+        padding: 10px 15px;
+      }
+      .message img {
+        width: 35px;
+        height: 35px;
+      }
     }
-    
-
-    }
-    
-
-
-    /* Bottom css */
-    .bottom {
-        padding: 10px; /* Add some padding around the bottom section */
-        display: flex; /* Use flexbox for layout */
-        align-items: center; /* Center items vertically */
-        justify-content: space-between; /* Space between input and icons */
-        background-color: rgba(30, 30, 30, 0.8); /* Slightly darker background */
-        border-top: 1px solid rgba(255, 255, 255, 0.4); /* Add a top border */
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect for depth */
-        transition: background-color 0.3s; /* Smooth background color transition */
-        margin-top: auto;
-    }
-    
-    .bottom:hover {
-        background-color: rgba(50, 50, 50, 0.9); /* Darker background on hover */
-    }
-    
-    .icons {
-        display: flex; /* Flex container for icons */
-        align-items: center; /* Center the icons vertically */
-    
-        img {
-            width: 26px; /* Increased icon size */
-            height: 26px;
-            margin-left: 15px; /* Space between icons */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: transform 0.3s, filter 0.3s; /* Transition for hover effect */
-        }
-    
-        img:hover {
-            transform: scale(1.2); /* Scale effect on hover */
-            filter: brightness(1.3); /* Brighten icon on hover */
-        }
-    }
-    
-    input {
-        flex: 1; /* Allow the input to grow and fill space */
-        padding: 12px; /* Increased padding inside the input */
-        margin: 0 15px; /* Space between input and icons */
-        border: 1px solid rgba(255, 255, 255, 0.4); /* Border styling */
-        border-radius: 20px; /* Rounded corners for a pill shape */
-        background-color: rgba(255, 255, 255, 0.1); /* Background color */
-        color: white; /* Text color */
-        outline: none; /* Remove default outline */
-        transition: border-color 0.3s; /* Smooth border color transition */
-    }
-    
-    input:focus {
-        border-color: #007bff; /* Change border color on focus */
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
-    }
-    
-    .emoji-picker {
-
-        display: flex; /* Flex container for emoji icon */
-        position: relative;
-        align-items: center; /* Center the emoji vertically */
-    
-        img {
-            width: 26px; /* Increased emoji icon size */
-            height: 26px;
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: transform 0.3s, filter 0.3s; /* Add transition for hover effect */
-        }
-    
-        img:hover {
-            transform: scale(1.2); /* Scale effect on hover */
-            filter: brightness(1.3); /* Brighten emoji on hover */
-        }
-
-    }
-    .emoji {
-        display: flex; /* Flex container for emoji icon */
-        position: relative; /* Position relative for child elements */
-        align-items: center; /* Center the emoji vertically */
-    }
-    
-    .picker {
-        position: absolute; /* Position it absolutely */
-        bottom: 60px; /* Distance from the bottom */
-        right: 0; /* Align to the right of the emoji icon */
-        z-index: 10; /* Ensure it appears above other elements */
-        display: block; /* Ensure it's displayed as a block element */
-        border-radius: 10px; /*a Rounded corners */
-        padding: 10px; /* Add paddinag around the emoji picker */
-        background: transparent;
-
-        transition: opacity 0.3s; /* Smooth transition for opacity */
-    }
-    
-    .picker img {
-        width: 24px; /* Size of emojis */
-        height: 24px; /* Ensure consistency */
-        margin: 5px; /* Space between emojis */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: transform 0.3s; /* Add transition for hover effect */
-    }
-    
-    .picker img:hover {
-        transform: scale(1.2); /* Scale effect on hover */
-    }
-    
-    .sendButton {
-        padding: 12px 20px; /* Increased padding for the send button */
-        border: none; /* Remove border */
-        border-radius: 20px; /* Rounded corners */
-        background-color: #007bff; /* Background color for the button */
-        color: white; /* Text color */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: background-color 0.3s, transform 0.2s; /* Transition for background color and scale */
-        font-weight: bold; /* Bold text */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    }
-    
-    .sendButton:hover {
-        background-color: #0056b3; /* Darker color on hover */
-        transform: translateY(-2px); /* Slight lift on hover */
-    }
-    
-    .sendButton:active {
-        transform: translateY(1px); /* Pressed effect */
-    }
-    
-    
-
-}
-
-
-.chat {
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Ensure the chat takes full height of the container */
   }
-  
-  .center {
-    flex: 1; /* Allow this section to take available space */
-    overflow-y: auto; /* Enable scrolling */
-    padding: 10px; /* Add padding to the chat area */
-  }
-  
+
+  /* Bottom css */
   .bottom {
-    display: flex; /* Flex container for input area */
+    padding: 10px; /* Add some padding around the bottom section */
+    display: flex; /* Use flexbox for layout */
     align-items: center; /* Center items vertically */
-    padding: 10px; /* Add some padding */
-    border-top: 1px solid #ccc; /* Optional: Add a border to separate from chat messages */
-    background-color: #f9f9f9; /* Optional: Background color for the input area */
-  }
-  
-  .icons {
-    display: flex; /* Display icons inline */
-    margin-right: 10px; /* Spacing between icons and input */
-  }
-  
-  input[type="text"] {
-    flex: 1; /* Make input take available space */
-    padding: 10px; /* Add some padding */
-    border: 1px solid #ccc; /* Border styling */
-    border-radius: 4px; /* Rounded corners */
-  }
-  
-  .media-preview {
-    display: flex; /* Arrange media preview and description inline */
-    align-items: center; /* Center align items */
-  }
-  
-  .media-preview img,
-  .media-preview video {
-    max-width: 100px; /* Limit the size of media previews */
-    margin-right: 10px; /* Space between media and remove button */
+    justify-content: space-between; /* Space between input and icons */
+    background-color: rgba(30, 30, 30, 0.8); /* Slightly darker background */
+    border-top: 1px solid rgba(255, 255, 255, 0.4); /* Add a top border */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect for depth */
+    transition: background-color 0.3s; /* Smooth background color transition */
+    margin-top: auto;
+
+    .send-icon {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      }
+      
+      .send-icon.animate {
+        animation: flyAway 0.6s ease forwards;
+      }
+      
+      @keyframes flyAway {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(-150px) scale(0.8);
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-300px) scale(0.4);
+          opacity: 0;
+        }
+      }
+      
+
+    button{
+        font-size:xx-large;
+    }
+    
+    button{
+        font-size:xx-large;
+    }
+
+    img {
+      width: 26px; /* Increased icon size */
+      height: 26px;
+      margin-left: 15px; /* Space between icons */
+      cursor: pointer; /* Pointer cursor on hover */
+      transition: transform 0.3s, filter 0.3s; /* Transition for hover effect */
+    }
+
+    img:hover {
+      transform: scale(1.2); /* Scale effect on hover */
+      filter: brightness(1.3); /* Brighten icon on hover */
+    }
+    
+      
   }
 
-  /* Add this to chat.css */
-.send-button {
-    background-color: yellow; /* Change button color to yellow */
-    border: none; /* Remove default border */
-    padding: 10px 15px; /* Add padding */
-    cursor: pointer; /* Change cursor to pointer */
-    border-radius: 4px; /* Rounded corners */
+  .bottom:hover {
+    background-color: rgba(50, 50, 50, 0.9); /* Darker background on hover */
   }
-  
-  .sending-message {
-    color: gray; /* Style for sending message */
-    font-style: italic; /* Italics for clarity */
+
+  .icons {
+    display: flex; /* Flex container for icons */
+    align-items: center; /* Center the icons vertically */
+
+    img {
+      width: 26px; /* Increased icon size */
+      height: 26px;
+      margin-left: 15px; /* Space between icons */
+      cursor: pointer; /* Pointer cursor on hover */
+      transition: transform 0.3s, filter 0.3s; /* Transition for hover effect */
+    }
+
+    img:hover {
+      transform: scale(1.2); /* Scale effect on hover */
+      filter: brightness(1.3); /* Brighten icon on hover */
+    }
   }
-  
+
+  input {
+    flex: 1; /* Allow the input to grow and fill space */
+    padding: 12px; /* Increased padding inside the input */
+    margin: 0 15px; /* Space between input and icons */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Border styling */
+    border-radius: 20px; /* Rounded corners for a pill shape */
+    background-color: rgba(255, 255, 255, 0.1); /* Background color */
+    color: white; /* Text color */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s; /* Smooth border color transition */
+  }
+
+  input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
+  }
+
+  .emoji {
+    display: flex; /* Flex container for emoji icon */
+    position: relative;
+    align-items: center; /* Center the emoji vertically */
+
+    img {
+      width: 26px; /* Increased emoji icon size */
+      height: 26px;
+      cursor: pointer; /* Pointer cursor on hover */
+      transition: transform 0.3s, filter 0.3s; /* Add transition for hover effect */
+    }
+
+    img:hover {
+      transform: scale(1.2); /* Scale effect on hover */
+      filter: brightness(1.3); /* Brighten emoji on hover */
+    }
+  }
+  .emoji {
+    display: flex; /* Flex container for emoji icon */
+    position: relative; /* Position relative for child elements */
+    align-items: center; /* Center the emoji vertically */
+  }
+
+  .picker {
+    position: absolute; /* Position it absolutely */
+    bottom: 60px; /* Distance from the bottom */
+    right: 0; /* Align to the right of the emoji icon */
+    z-index: 10; /* Ensure it appears above other elements */
+    display: block; /* Ensure it's displayed as a block element */
+    border-radius: 10px; /*a Rounded corners */
+    padding: 10px; /* Add paddinag around the emoji picker */
+    background: transparent;
+
+    transition: opacity 0.3s; /* Smooth transition for opacity */
+  }
+
+  .picker img {
+    width: 24px; /* Size of emojis */
+    height: 24px; /* Ensure consistency */
+    margin: 5px; /* Space between emojis */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: transform 0.3s; /* Add transition for hover effect */
+  }
+
+  .picker img:hover {
+    transform: scale(1.2); /* Scale effect on hover */
+  }
+
+  .sendButton {
+    padding: 12px 20px; /* Increased padding for the send button */
+    border: none; /* Remove border */
+    border-radius: 20px; /* Rounded corners */
+    background-color: #007bff; /* Background color for the button */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Transition for background color and scale */
+    font-weight: bold; /* Bold text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  }
+
+  .sendButton:hover {
+    background-color: #0056b3; /* Darker color on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+
+  .sendButton:active {
+    transform: translateY(1px); /* Pressed effect */
+  }
+}

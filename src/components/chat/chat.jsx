@@ -8,6 +8,7 @@ import {
   onSnapshot,
   updateDoc,
 } from "firebase/firestore";
+import { FiSend } from "react-icons/fi";
 import { db } from "../../lib/firebase";
 import { useChatStore } from "../../lib/chatStore";
 import { useUserStore } from "../../lib/userStore";
@@ -51,6 +52,9 @@ const Chat = () => {
       unSub();
     };
   }, [chatId]);
+
+
+  
 
   const handleEmoji = (e) => {
     setText((prev) => prev + e.emoji);
@@ -176,6 +180,31 @@ const Chat = () => {
     }
   };
 
+  const renderMessageText = (text) => {
+  // Regular expression to detect URLs
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+
+  // If the text contains URLs, replace them with clickable links
+  const formattedText = text.split(" ").map((part, index) =>
+    urlPattern.test(part) ? (
+      <a
+        key={index}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="message-link" // Add a class for styling
+      >
+        {part}
+      </a>
+    ) : (
+      <span key={index}>{part} </span>
+    )
+  );
+
+  return formattedText;
+};
+
+
   return (
     <div className="chat">
       <div className="top">
@@ -187,13 +216,14 @@ const Chat = () => {
           </div>
         </div>
         <div className="icons">
-          <img src="./phone.png" alt="" />
-          <img src="./video.png" alt="" />
+          {/* <img src="./phone.png" alt="" />
+          <img src="./video.png" alt="" /> */}
           <img src="./info.png" alt="" />
         </div>
       </div>
       <div className="center">
         {chat?.messages?.map((message) => (
+        
           <div
             className={`message ${
               message.senderId === currentUser.id ? "own" : ""
@@ -234,12 +264,8 @@ const Chat = () => {
                   📦 ZIP File
                 </a>
               )}
-              {message.text && <p>{message.text}</p>}
-              {message.mediaDescription && (
-                <p>
-                  <i>{message.mediaDescription}</i>
-                </p>
-              )}
+              {message.text && <p>{renderMessageText(message.text)}</p>}
+  {message.mediaDescription && <p><i>{message.mediaDescription}</i></p>}
             </div>
           </div>
         ))}
@@ -298,8 +324,7 @@ const Chat = () => {
             style={{ display: "none" }}
             onChange={handleMedia}
           />
-          <img src="./camera.png" alt="" />
-          <img src="./mic.png" alt="" />
+        
           <div className="emoji">
             <img
               src="./emoji.png"
@@ -321,12 +346,15 @@ const Chat = () => {
           onKeyDown={handleKeyDown}
           ref={textInputRef}
         />
+  
         <button
           onClick={handleSend}
           disabled={isSending || isCurrentUserBlocked || isReciverBlocked}
         >
-          Send
+          <FiSend /> {/* Reply icon */}
         </button>
+          <img src="./mic.png" alt="" />
+          <img src="./camera.png" alt="" />
       </div>
     </div>
   );

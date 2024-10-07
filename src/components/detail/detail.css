@@ -220,3 +220,21 @@
     }
   }
 }
+
+
+/* Hide list on small screens */
+@media (max-width: 1024px) {
+  .detail {
+    display: none; /* Hide the list on smaller screens */
+  }
+
+  .chat-item {
+    cursor: pointer;
+  }
+
+  /* Show chat only */
+  .container {
+    flex-direction: column; /* Stack elements vertically */
+    width: 100%; /* Full width */
+  }
+}

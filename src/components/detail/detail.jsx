@@ -28,6 +28,7 @@ const Detail = () => {
       
     }
   };
+  
   return (
     <div className="detail">
       <div className="user">
@@ -37,7 +38,7 @@ const Detail = () => {
       </div>
       <div className="info">
         <div className="option">
-          <div className="title">
+          {/* <div className="title">
             <span>Chat Setting</span>
             <img src="./arrowUp.png" alt="" />
           </div>
@@ -48,8 +49,8 @@ const Detail = () => {
           <div className="title">
             <span>Shared Photos</span>
             <img src="./arrowDown.png" alt="" />
-          </div>
-          <div className="photos">
+          </div> */}
+          {/* <div className="photos">
             <div className="photoItem">
               <div className="photsDetail">
                 <img
@@ -70,11 +71,11 @@ const Detail = () => {
               </div>
               <img src="./download.png" alt="" />
             </div>
-          </div>
-          <div className="title">
+          </div> */}
+          {/* <div className="title">
             <span>Shared Files</span>
             <img src="./arrowUp.png" alt="" />
-          </div>
+          </div> */}
           <button onClick={handleBlock} >{
             isCurrentUserBlocked ? "You Are Blocked" : isReciverBlocked ? "User Blocked": "Block User"
           }</button>
