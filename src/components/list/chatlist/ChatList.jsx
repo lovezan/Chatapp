@@ -110,7 +110,7 @@ const ChatList = () => {
               <div className="texts">
                 <span className="userName">{chat.user?.username}</span>
                 <p className="userMessage">
-                  {chat.lastMessage || "No messages yet"}
+                  {chat.lastMessage || "No messages yet Click + for ADD"}
                 </p>
               </div>
             </div>
