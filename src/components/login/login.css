@@ -192,7 +192,7 @@
   }
    */
 
-   /* login.css */
+/* login.css */
 
 .login-container {
   display: flex;
@@ -203,25 +203,42 @@
   border-radius: 10px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5); /* Dark background for contrast */
-  
-.avatar-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
 
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  border: 2px dashed #ffa500;
-  object-fit: cover;
-  transition: border-color 0.3s;
-}
+  .avatar-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
 
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px dashed #ffa500;
+    object-fit: cover;
+    transition: border-color 0.3s;
+  }
+
+  .password-field {
+    position: relative;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center the items vertically */
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 10px; /* Adjust for spacing */
+    cursor: pointer;
+    z-index: 1; /* Ensure it's above the input */
+  }
+
+  .password-field input {
+    padding-right: 30px; /* Add padding to the right to prevent text overlap */
+    width: 100%; /* Ensure the input takes full width */
+  }
 }
 
 .form-card {
@@ -235,33 +252,32 @@
   max-width: 400px;
   color: white;
 
-  
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 15px;
-  margin: 10px 0;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  font-size: 16px;
-}
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+  }
 
-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
 
-input:focus {
-  border-color: #ffa500;
-  outline: none;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
-}
+  input:focus {
+    border-color: #ffa500;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
+  }
 }
 
 .form-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   left: -10px;
@@ -280,7 +296,6 @@ input:focus {
   font-size: 24px;
 }
 
-
 .submit-button {
   background-color: rgba(255, 165, 0, 0.9);
   color: white;
@@ -291,14 +306,25 @@ input:focus {
   width: 100%;
   transition: background-color 0.3s;
 
-  &:disabled{
+  &:disabled {
     cursor: not-allowed;
-    background-color: rgba(255, 165, 0, 0.2) ;
+    background-color: rgba(255, 165, 0, 0.2);
   }
 }
 
 .submit-button:hover {
   background-color: rgba(255, 140, 0, 0.9);
+}
+
+.forgot-password {
+  margin-top: 10px; /* Adjusts the gap above the link */
+  text-align: center; /* Centers the text */
+}
+
+.forgot-password span {
+  color: #ff3d00; /* Neon Red */
+  text-shadow: 0 0 5px #ff3d00, 0 0 10px #ff3d00, 0 0 15px #ff3d00; /* Neon glow effect */
+  cursor: pointer; /* Changes cursor to pointer */
 }
 
 .toggle-form {
@@ -311,6 +337,7 @@ input:focus {
   color: #ffa500;
   cursor: pointer;
   text-decoration: underline;
+  z-index: 10;
 }
 
 .link:hover {
@@ -338,8 +365,6 @@ input:focus {
   .submit-button {
     padding: 12px;
   }
-
-
 }
 
 /* Tablets */
@@ -363,8 +388,6 @@ input:focus {
   .submit-button {
     padding: 14px;
   }
-
-  
 }
 
 /* Desktop */
@@ -388,6 +411,4 @@ input:focus {
   .submit-button {
     padding: 16px;
   }
-
-
 }

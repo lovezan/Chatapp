@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Chat from "./components/chat/chat";
 import List from "./components/list/list";
 import Detail from "./components/detail/detail";
@@ -14,7 +16,7 @@ import Loading from "./AppComponents/Loading"; // Import the new component
 const App = () => {
   const { currentUser, isLoading, fetchUserInfo } = useUserStore();
   const { chatId } = useChatStore();
-  const [isDeviceCompatible, setIsDeviceCompatible] = useState(true); 
+  const [isDeviceCompatible, setIsDeviceCompatible] = useState(true);
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
@@ -26,7 +28,7 @@ const App = () => {
     });
 
     const handleResize = () => {
-      setIsDeviceCompatible(window.innerWidth >200 );
+      setIsDeviceCompatible(window.innerWidth > 200);
     };
 
     window.addEventListener("resize", handleResize);

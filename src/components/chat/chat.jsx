@@ -308,8 +308,6 @@ const Chat = () => {
           </div>
         )}
 
-        {isSending && <p className="sending-message">Sending...</p>}
-
         <div ref={endref}></div>
       </div>
       <div className="bottom">
