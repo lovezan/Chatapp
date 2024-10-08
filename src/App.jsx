@@ -26,7 +26,7 @@ const App = () => {
     });
 
     const handleResize = () => {
-      setIsDeviceCompatible(window.innerWidth >720 );
+      setIsDeviceCompatible(window.innerWidth >200 );
     };
 
     window.addEventListener("resize", handleResize);

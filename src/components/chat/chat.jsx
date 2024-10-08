@@ -352,8 +352,8 @@ const Chat = () => {
         >
           <FiSend /> {/* Reply icon */}
         </button>
-        <img src="./mic.png" alt="" />
-        <img src="./camera.png" alt="" />
+        {/* <img src="./mic.png" alt="" />
+        <img src="./camera.png" alt="" /> */}
       </div>
     </div>
   );

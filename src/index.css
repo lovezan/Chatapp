@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -40,4 +39,22 @@ body {
   font-size: 36px;
   border-radius: 10px;
   background-color: rgb(38, 32, 32);
+}
+
+/* Hide list on small screens */
+@media (max-width: 768px) {
+  /* Hide list on small screens */
+  @media (max-width: 768px) {
+    #root {
+      overflow: auto; /* Allow scrolling if content overflows */
+      height: 100vh; /* Make sure it takes full height of the viewport */
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and Edge */
+    }
+
+    /* Hide scrollbar for Chrome, Safari, and Edge */
+    #root::-webkit-scrollbar {
+       /* Completely hide scrollbar */
+    }
+  }
 }

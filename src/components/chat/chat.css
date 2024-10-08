@@ -5,6 +5,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  
 
   .top {
     padding: 20px;
@@ -161,6 +162,7 @@
     }
 
     @media (max-width: 768px) {
+      
       .message {
         max-width: 85%;
         padding: 10px 15px;
@@ -339,4 +341,5 @@
   .sendButton:active {
     transform: translateY(1px); /* Pressed effect */
   }
+  
 }

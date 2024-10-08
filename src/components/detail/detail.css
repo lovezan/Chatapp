@@ -223,9 +223,9 @@
 
 
 /* Hide list on small screens */
-@media (max-width: 1024px) {
-  .detail {
-    display: none; /* Hide the list on smaller screens */
+@media (max-width: 768px) {
+  .detail { /* Hide the list on smaller screens */
+    display: none; 
   }
 
   .chat-item {

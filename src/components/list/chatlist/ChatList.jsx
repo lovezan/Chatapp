@@ -58,11 +58,7 @@ const ChatList = () => {
       });
       changeChat(chat.chatId, chat.user);
       
-      // Check screen width and update state accordingly
-      if (window.innerWidth <= 1024) {
-        setIsChatOpen(true); // Open chat view for smaller screens
-        setIsDetailOpen(false); // Ensure detail view is closed when selecting a chat
-      }
+      
     } catch (err) {
       console.log(err);
     }
